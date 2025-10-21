@@ -10,36 +10,58 @@ import com.entity.Student;
 /* Student Class Session CRUD Operation */
 public class StudentCrud {
 	
+	
+	public static Configuration configuration;
+	public static Student student;
+	public static Transaction  transaction;
+	public static Session session;
+	public static SessionFactory sessionFactory;
+	
 	public static void main(String[] args) {
 		
 		//Configuration object 
-		 Configuration configuration = new Configuration();
+		 configuration = new Configuration();
 		 configuration.configure("hibernate.cfg.xml");
 		 
 		 //SessionFactory
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		 sessionFactory = configuration.buildSessionFactory();
 		
 		//Session
-		Session session=sessionFactory.openSession();
+		 session=sessionFactory.openSession();
 		
 		//transaction
-		Transaction transaction=session.beginTransaction();
+		transaction=session.beginTransaction();
 		
 		//Create object of the student Class // Student Model Class
-		Student student=new Student(105,"Pinki","JHR");
+		student=new Student(110,"Priya","Mumbai");
 		
 		// save and commit 
 		session.save(student);
 		transaction.commit();
 		
 		// get all data form Student Class
-		Student st = session.get(Student.class,101);
+		Student st = session.get(Student.class,105);
 		System.out.println(st.getRollNumber()+" "+st.getName()+" "+ st.getAddress());
+		
+		// update : To get first data and update new dat
+		
+		student=session.get(Student.class,103);
+		student.setName("Rohan");
+		System.out.println("Student data updated  Successfully  "+student.getName());
+		
+		
+		//Delete data 
+		transaction=session.beginTransaction();
+		student=session.get(Student.class,108);
+		session.delete(student);
+		transaction.commit();
+		System.out.println("Student data deleted : "+ student.getName() );
+		
 		
 		
 		// close Resource
 		session.close();
-		System.out.println("Data Inserted Successfully");
+		System.out.println("Application End ");
 		
 	}
 }

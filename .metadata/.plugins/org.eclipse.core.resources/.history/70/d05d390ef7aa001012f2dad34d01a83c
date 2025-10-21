@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fusion Software Institute - Java Full Stack</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #fff);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        color: #00796b;
+        margin-top: 30px;
+    }
+
+    h2 {
+        color: #004d40;
+        margin-bottom: 40px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .container a {
+        text-decoration: none;
+        background-color: #00796b;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .container a:hover {
+        background-color: #004d40;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+    <h1>Fusion Software Institute - Java Full Stack</h1>
+    <h2>Lecture By : Miss Geetanaji Ma'am</h2>
+
+    <div class="container">
+        <a href="firstServlet">First Servlet</a>
+        <a href="secondServlet">Second Servlet</a>
+        <a href="ThirdServlet">Third Servlet</a>
+       	<a href="register.html">Register</a>
+       	<a href="requestDispature.html">RequestDispature</a>
+       	<a href="sendRedirect.html">Send Redirect</a>
+       	<a href="attributepara.html">Attribute And Parameter</a>
+       	<a href="httpSession.html">Http Session </a>
+       	<a href="cookies.html">Cookies Session </a>
+       	<a href="urlRedirect.html">Url Redirect</a>
+    </div>
+</body>
+</html>

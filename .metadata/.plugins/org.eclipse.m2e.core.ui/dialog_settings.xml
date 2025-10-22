@@ -56,12 +56,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.example.servlet.Page"/>
+			<item value="com.example.servlet.tooflib"/>
 			<item value="com.example.servlet"/>
 		</list>
 		<list key="groupId">
 			<item value="com.example.servlet"/>
 		</list>
 		<list key="artifactId">
+			<item value="Page"/>
+			<item value="tooflib"/>
 			<item value="MavenProject"/>
 		</list>
 		<list key="projectNameTemplate">

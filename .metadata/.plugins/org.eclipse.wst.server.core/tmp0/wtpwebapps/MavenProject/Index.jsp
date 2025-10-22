@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <!--  tag lib directive-->
-    <%@ taglib prefix="java" uri="http://java.sun.com/jsp/jstl/core" %>
     
-    <!-- Page Directive -->
-    <%@ page isELIgnored="false" %>
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Taglib directive -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!-- Page directive -->
+<%@ page isELIgnored="false" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                      "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,14 +16,16 @@
 </head>
 <body>
 
-	<java:set var="age" value="25"></java:set>
-	<java:out value="${age}"></java:out>
-	
-	
-	
-	<java:if test="${age>18 }">
-		<h1>You are eligible for the Vote</h1>
-	</java:if>
-	
+    <c:set var="age" value="25" />
+    <c:out value="${age}" />
+
+    <c:if test="${age > 18}">
+        <h1>You are eligible to vote</h1>
+    </c:if>
+
+    <c:if test="${age < 18}">
+        <h2>You're not eligible to vote</h2>
+    </c:if>
+
 </body>
 </html>

@@ -1,40 +1,27 @@
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+    <!--  tag lib directive-->
+    <%@ taglib prefix="java" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+    <!-- Page Directive -->
+    <%@ page isELIgnored="false" %>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Index Page</title>
+<title>TagLib Directive</title>
 </head>
 <body>
-    <h3>This is index page</h3>
 
-    <%! 
-        String name = "Akshay"; 
-        Set<String> set = new HashSet<String>();
-    %>
-
-    <%
-        // Add some sample data to the set
-        set.add("Java");
-        set.add("JSP");
-        set.add("Servlet");
-        set.add("HTML");
-    %>
-
-    <p>Name: <%= name %></p>
-
-    <h4>Set Elements:</h4>
-    <ul>
-        <%
-            for(String item : set){
-        %>
-            <li><%= item %></li>
-        <%
-            }
-        %>
-    </ul>
+	<java:set var="age" value="25"></java:set>
+	<java:out value="${age}"></java:out>
+	
+	
+	
+	<java:if test="${age>18 }">
+		<h1>You are eligible for the Vote</h1>
+	</java:if>
+	
 </body>
 </html>

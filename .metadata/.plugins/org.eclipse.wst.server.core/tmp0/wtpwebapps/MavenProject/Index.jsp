@@ -39,6 +39,12 @@
 	<c:forEach var="fruit" items="${fruits}">
     	<li><c:out value="${fruit}" /></li>
 	</c:forEach>
+	
+	<% 
+	String name=null;
+	name.length();
+	%>
+		
 	<%@ include file="Fotter.jsp" %>
 </body>
 </html>

@@ -15,7 +15,7 @@
 <title>TagLib Directive</title>
 </head>
 <body>
-
+<%@ include file="Navbar.jsp"  %>
     <c:set var="age" value="25" />
     <c:out value="${age}" />
 
@@ -27,5 +27,18 @@
         <h2>You're not eligible to vote</h2>
     </c:if>
 
+	<!-- Use like a Array -->
+	<c:set var="fruits" value="${ fruits},apple"></c:set>
+	<c:set var="fruits" value="${ fruits},mango"></c:set>
+	<c:set var="fruits" value="${ fruits},banana"></c:set>
+	<c:set var="fruits" value="${ fruits},papaya"></c:set>
+	<c:set var="fruits" value="${ fruits},Cherry"></c:set>
+
+	
+	<!-- Print using for each -->
+	<c:forEach var="fruit" items="${fruits}">
+    	<li><c:out value="${fruit}" /></li>
+	</c:forEach>
+	<%@ include file="Fotter.jsp" %>
 </body>
 </html>

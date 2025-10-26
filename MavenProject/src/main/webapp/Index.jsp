@@ -1,23 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-<!-- Taglib directive -->
+    pageEncoding="ISO-8859-1"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!-- Page directive -->
+<!-- Custom Tag Library -->
+<%@ taglib prefix="d" uri="/WEB-INF/tlds/myTag.tld" %>
 <%@ page isELIgnored="false" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-                      "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page errorPage="error.jsp" %>
+<%@ page isErrorPage="false" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>TagLib Directive</title>
+<title>TagLib Directive Example</title>
 </head>
 <body>
-<%@ include file="Navbar.jsp"  %>
+
+<%@ include file="Navbar.jsp" %>
+
     <c:set var="age" value="25" />
-    <c:out value="${age}" />
+    <p>Your age is: <c:out value="${age}" /></p>
 
     <c:if test="${age > 18}">
         <h1>You are eligible to vote</h1>
@@ -27,24 +26,28 @@
         <h2>You're not eligible to vote</h2>
     </c:if>
 
-	<!-- Use like a Array -->
-	<c:set var="fruits" value="${ fruits},apple"></c:set>
-	<c:set var="fruits" value="${ fruits},mango"></c:set>
-	<c:set var="fruits" value="${ fruits},banana"></c:set>
-	<c:set var="fruits" value="${ fruits},papaya"></c:set>
-	<c:set var="fruits" value="${ fruits},Cherry"></c:set>
+    <c:set var="fruits" value="${ fruits},apple"></c:set>
+    <c:set var="fruits" value="${ fruits},mango"></c:set>
+    <c:set var="fruits" value="${ fruits},banana"></c:set>
+    <c:set var="fruits" value="${ fruits},papaya"></c:set>
+    <c:set var="fruits" value="${ fruits},Cherry"></c:set>
+<ul>
+        <c:forEach var="fruit" items="${fruits}">
+            <li><c:out value="${fruit}" /></li>
+        </c:forEach>
+    </ul>
 
-	
-	<!-- Print using for each -->
-	<c:forEach var="fruit" items="${fruits}">
-    	<li><c:out value="${fruit}" /></li>
-	</c:forEach>
-	
-	<% 
-	String name=null;
-	name.length();
-	%>
-		
-	<%@ include file="Fotter.jsp" %>
+    <%-- Intentional error to trigger error.jsp --%>
+    <%-- <%
+        String name = null;
+        name.length();  // NullPointerException → goes to error.jsp
+    %> --%>
+
+    <!-- Custom Tag Usage -->
+    <h2>Custom Tag Example:</h2>
+    <d:Greet />
+
+<%@ include file="Footer.jsp" %>
+
 </body>
 </html>

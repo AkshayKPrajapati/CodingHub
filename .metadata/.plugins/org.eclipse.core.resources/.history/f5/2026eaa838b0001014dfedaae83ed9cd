@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"  %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
+<%@ page errorPage="error.jsp" %>
+<%@ page isErrorPage="false" %>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>TagLib Directive Example</title>
+</head>
+<body>
+
+<%@ include file="Navbar.jsp" %>
+
+    <c:set var="age" value="25" />
+    <p>Your age is: <c:out value="${age}" /></p>
+
+    <c:if test="${age > 18}">
+        <h1>You are eligible to vote</h1>
+    </c:if>
+
+    <c:if test="${age < 18}">
+        <h2>You're not eligible to vote</h2>
+    </c:if>
+
+    <c:set var="fruits" value="${ fruits},apple"></c:set>
+    <c:set var="fruits" value="${ fruits},mango"></c:set>
+    <c:set var="fruits" value="${ fruits},banana"></c:set>
+    <c:set var="fruits" value="${ fruits},papaya"></c:set>
+    <c:set var="fruits" value="${ fruits},Cherry"></c:set>
+    <ul>
+        <c:forEach var="fruit" items="${fruits}">
+            <li><c:out value="${fruit}" /></li>
+        </c:forEach>
+    </ul>
+
+    <%-- Intentional error to trigger error.jsp --%>
+    <%
+        String name = null;
+        name.length();  // NullPointerException → goes to error.jsp
+    %>
+
+<%@ include file="Footer.jsp" %>
+
+</body>
+</html>
